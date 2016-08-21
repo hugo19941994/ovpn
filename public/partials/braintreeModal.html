@@ -1,0 +1,137 @@
+<div class="modal fade" id="brainTreeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <form id="brainTreeCheckout" action="brainTree" method="post">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Thanks for your purchase!</h4>
+        </div>
+
+        <div class="modal-body">
+
+            <div id="dropin-container"></div>
+            <hr>
+            <div class="row" id="progress" style="display:none">
+              <div class="col-md-12">
+                  <ul style="list-style-type: none;">
+                      <li><i id="checkC" class="fa fa-cog fa-spin"></i>&nbsp;Generating certificate</li>
+                      <li><i id="checkP" class="fa fa-cog fa-spin"></i>&nbsp;Checking payment</li>
+                      <li id="downloadDiv"><i id="checkD" class="fa fa-cog fa-spin"></i>&nbsp;Download!</li>
+                      <li><i id="checkE" class="fa fa-cog fa-spin"></i>&nbsp;Encrypting email</li>
+                      <li><i id="checkS" class="fa fa-cog fa-spin"></i>&nbsp;Sending email</li>
+                  </ul>
+                  <hr>
+              </div>
+            </div>
+            <div id="amountDisplay">
+                <p>Price: {{getPrice() | number : 2}} Euros | Days: {{(getPrice()-(9/8))*8}}</p>
+            </div>
+            <div id="optionalForm">
+                <div class="row">
+                  <div class="col-md-12">
+                    <p align="center"> If you whish to recieve the certificate via email complete the form below</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <input style="font-family: Oxygen;" type="text" id="email" class="form-control" placeholder="Email - Optional" style="height:40px; font-size:20px">
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-md-12">
+                    <p align="center"> Optionally add your public PGP certificate to enable us to encrypt the email</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <textarea style="resize:vertical; font-family: Oxygen;" style="font-family: Oxygen;" id="publicPGPKey" cols="40" rows="5" type="text" name="PGP" class="form-control" placeholder="Public PGP Key - Optional" style="height:40px; font-size:20px"></textarea>
+                  </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <input type="submit" id="submit" value="Pay" ng-click="showPrice();" class="btn btn-primary">
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!--<script type="text/javascript" src="js/braintree.js"></script>-->
+<!--<script type="text/javascript" src="js/coinbaseButton.js"></script>-->
+<!--<script type="text/javascript" src="js/socket.io-1.3.6.js"></script>-->
+<!-- <script type="text/javascript">
+
+    $.get( "/client_token", function( data ) {
+        var clientToken = data;
+        preparePayment(clientToken)
+    })
+
+    function preparePayment(clientToken) {
+        var scope = angular.element($("#braintree")).scope()
+        //alert("PAYPAL " + scope.getPrice())
+        braintree.setup(clientToken, "dropin", {
+            container: "dropin-container",
+            paypal: {
+                singleUse: true,
+                amount: scope.getPrice(), //Always 0 TODO
+                curreny: 'EUR'
+            },
+            onPaymentMethodReceived: function (obj) {
+                processPayment(obj)
+            }
+        })
+    }
+
+    var socket = io.connect('https://ovpn.io');
+
+    function processPayment(obj) {
+        // Do some logic in here.
+        // When you're ready to submit the form:
+        document.getElementById("dropin-container").style.display = 'none';
+        document.getElementById("optionalForm").style.display = 'none';
+        document.getElementById("progress").style.display = 'block';
+
+        var scope = angular.element($("#braintree")).scope()
+        socket.emit('purchaseRequest', {
+            braintree: obj,
+            pgp: document.getElementById("publicPGPKey").value,
+            email: document.getElementById("email").value,
+            price: scope.getPrice()
+        })
+    }
+
+    socket.on('payment', function (msg) {
+        if (msg === "ok")
+            document.getElementById("checkP").className = "fa fa-check"
+        else
+            document.getElementById("checkP").className = "fa fa-exclamation-circle"
+    })
+    socket.on('cert', function (msg) {
+        if (msg === "ok")
+            document.getElementById("checkC").className = "fa fa-check"
+        else
+            document.getElementById("checkC").className = "fa fa-exclamation-circle"
+    })
+    socket.on('encrypt', function (msg) {
+        if (msg === "ok")
+            document.getElementById("checkE").className = "fa fa-check"
+        else
+            document.getElementById("checkE").className = "fa fa-exclamation-circle"
+    })
+    socket.on('email', function (msg) {
+        if (msg === "ok")
+            document.getElementById("checkS").className = "fa fa-check"
+        else
+            document.getElementById("checkS").className = "fa fa-exclamation-circle"
+    })
+    socket.on('download', function (msg) {
+        var blob = new Blob([msg])
+        var url = URL.createObjectURL(blob)
+        document.getElementById("downloadDiv").innerHTML = "<i id=\"checkD\" class=\"fa fa-check\"></i>&nbsp;<a download=\"yourOvpnioFiles.zip\" href=\"" + url + "\">Download!</a>"
+    })
+
+</script>-->

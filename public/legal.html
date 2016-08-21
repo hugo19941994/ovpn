@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ovpn">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ovpn.io</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="img/favicon.png">
+</head>
+
+<body>
+  <!-- Navbar -->
+  <div ng-include src="'partials/navbar.html'"></div>
+
+    <div class="container-full" style="height:375px">
+        <div class="row">
+            <div class="col-lg-12 text-center v-center">
+                <img src="img/logo2.svg"  width="220em" class="img-responsive center-block" alt="Responsive image">
+            </div>
+        </div> <!-- /row -->
+    </div> <!-- /container full -->
+
+    <div class="container">
+
+        <hr>
+
+        <div class="container-fluid">
+            <h1 class="text-center">Terms of service</h1>
+            <ul style="list-style-type: none; font-family: Oxygen;">
+                <li>ovpn.io provides OpenVPN certificates to encrypt your internet traffic</li>
+                <li>We are not responsible for our customers use of the service</li>
+                <li>We may terminate a customer's access if we detect abuse from their part. This includes:</li>
+                <ul style="list-style-type: none; font-family: Oxygen;">
+                    <li>DDOS attacks</li>
+                    <li>SPAM</li>
+                </ul>
+                <li><b>Refunds will be given out for any justifiable reason.</b> Please contact us via email (<a href="mailto:about@ovpn.io">about@ovpn.io</a>) specifying your certificate's name. You may wish to encrypt your email with our public PGP key</li>
+                <li>We may change our terms of service at any time</li>
+                <!--<li>All ovpn.io software is open source. Any discovered vulnerabilities responsibly disclosed to us will be rewarded to the best of our ability</li>-->
+            </ul>
+        </div>
+
+        <br><hr><br>
+
+        <div class="container-fluid" id="about">
+            <h1 class="text-center">Privacy Policy</h1>
+            <ul style="list-style-type: none; font-family: Oxygen;">
+                <li>No information about our customers is stored on our servers</li>
+                <li>All payment information is handled by BrainTree</li>
+                <li>All logging related to our service is disabled</li>
+                <ul style="list-style-type: none; font-family: Oxygen;">
+                    <li>We may temporarily enable logging for debugging purposes. Any logs will eventually be cleared</li>
+                </ul>
+                <li>We will comply with any authorities request</li>
+
+            </ul>
+        </div>
+
+        <br><hr><br>
+    </div>
+
+</div>
+
+  <div ng-include src="'partials/footer.html'"></div>
+
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>

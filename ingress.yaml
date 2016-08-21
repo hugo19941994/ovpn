@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ovpn-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+spec:
+  tls:
+  - hosts:
+    - ovpn.hfs.dev
+    secretName: ovpn-tls
+  rules:
+  - host: ovpn.hfs.dev
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: ovpn
+          servicePort: 80

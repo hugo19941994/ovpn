@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ovpn">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ovpn.io</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="img/favicon.png">
+</head>
+
+<body>
+  <!-- Navbar -->
+  <div ng-include src="'partials/navbar.html'"></div>
+
+    <div class="container-full" style="height:375px">
+        <div class="row">
+            <div class="col-lg-12 text-center v-center">
+                <img src="img/logo2.svg"  width="220em" class="img-responsive center-block" alt="Responsive image">
+            </div>
+        </div> <!-- /row -->
+    </div> <!-- /container full -->
+
+    <div class="container">
+
+        <hr>
+
+        <div class="container-fluid">
+            <h1 class="text-center">Windows Guide</h1>
+            <ol style="font-family: Oxygen;">
+                <li><a href="https://openvpn.net/index.php/open-source/downloads.html">Download and install OpenVPN (as of the date of this guide the latest version is 2.3.8-l601)</a></li>
+                <li>Copy the folder with the certificates in C:/ProgramFiles/OpenVPN/config</li>
+                <li>Open as administrator the OpenVPN client</li>
+                <li>Right click the icon and select ovpn.io</li>
+                <li>You are now connected</li>
+            </ol>
+        </div>
+
+    </div>
+
+    <div ng-include src="'partials/footer.html'"></div>
+
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>
