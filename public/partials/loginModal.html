@@ -1,0 +1,38 @@
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <form action="login.js" method="post">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Welcome Back!</h4>
+        </div>
+
+        <div class="modal-body">
+
+          <div class="form-group "> <!--center!! -->
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+              <input style="font-family: Oxygen;" type="text" name="email" class="form-control" placeholder="Email" style="height:40px; font-size:20px">
+            </div>
+            <br>
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+              <input style="font-family: Oxygen;" type="password" name="password" class="form-control" placeholder="Password" style="height:40px; font-size:20px">
+            </div>
+            <br>
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-terminal fa-fw"></i></span>
+              <input style="font-family: Oxygen;" type="text" name="token" class="form-control" placeholder="2FA Token - Optional" style="height:40px; font-size:20px">
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-dismiss="modal" data-toggle="modal" data-target="#regModal" style="float:left">Create Account</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Go</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

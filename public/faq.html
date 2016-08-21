@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ovpn">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ovpn.io</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="img/favicon.png">
+</head>
+
+<body>
+  <!-- Navbar -->
+  <div ng-include src="'partials/navbar.html'"></div>
+
+    <div class="container-full" style="height:375px">
+        <div class="row">
+            <div class="col-lg-12 text-center v-center">
+                <img src="img/logo2.svg"  width="220em" class="img-responsive center-block" alt="Responsive image">
+            </div>
+        </div> <!-- /row -->
+    </div> <!-- /container full -->
+
+    <div class="container">
+
+        <hr>
+
+        <div class="container-fluid">
+            <h1 class="text-center">What kind of encryption does ovpn.io use?</h1>
+            <p style="font-family: Oxygen;">OpenVPN provides a number of ciphers to choose from. We choose the most secure ones for ovpn.io:</p>
+            <ul style="list-style-type: none; font-family: Oxygen;">
+                <li>4096 bit private keys and DH parameters</li>
+                <li>MitM & DoS protection</li>
+                <li>Control Channel</li>
+                <ul style="list-style-type: none; font-family: Oxygen;">
+                    <li>TLS version 1.2</li>
+                    <li>TLS-DHE-RSA-WITH-AES-256-GCM-SHA384 TLS cipher</li>
+                </ul>
+                <li>Data Channel</li>
+                <ul style="list-style-type: none; font-family: Oxygen;">
+                    <li>SHA512 digest</li>
+                    <li>AES-256-CBC cipher</li>
+                </ul>
+            </ul>
+        </div>
+
+        <br><hr><br>
+
+        <div class="container-fluid">
+            <h1 class="text-center">Where is ovpn.io hosted?</h1>
+            <p style="font-family: Oxygen;">ovpn.io is hosted in France, inside an OVH datacenter</p>
+            <p style="font-family: Oxygen;">We rent a dedicated server, therefor no hypervisors are involved. We are not vulnerable to any attacks which concern virtualization because nothing is virtualized. Resources are not shared. The whole machine is solely dedicated for ovpn.io</p>
+            <p style="font-family: Oxygen;">The server has the following specs:</p>
+            <ul style="list-style-type: none; font-family: Oxygen;">
+                <li>Core i5-750 (4 cores @ 2.67GHz)</li>
+                <li>16GB of DDR3 RAM</li>
+                <li>100Mbps bandwidth</li>
+            </ul>
+            <p style="font-family: Oxygen;">This is a serviceable machine. However the location and bandwidth are not ideal. We are aware of the issue and we will try to migrate the server to a more privacy-friendly country, on a datecenter with more bandwidth (while keeping the same price)</p>
+        </div>
+
+        <br><hr><br>
+
+        <div class="container-fluid" id="about">
+            <h1 class="text-center">Roadmap</h1>
+            <ul style="list-style-type: none; font-family: Oxygen;">
+                <li>Implement bitcoin checkout</li>
+                <li>Change the server country</li>
+                <li>Add UDP, alongside TCP</li>
+                <li>Add more countries?</li>
+                <li>Let clients choose their preffered cipher</li>
+                <li>Implement pay as you go pricing</li>
+                <li>Status page</li>
+                <li>Write new guides</li>
+                <li>Complete FAQ</li>
+                <li>Publish Git repo</li>
+
+            </ul>
+        </div>
+
+        <br><hr><br>
+    </div>
+
+</div>
+
+  <div ng-include src="'partials/footer.html'"></div>
+
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>

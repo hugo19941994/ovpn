@@ -1,0 +1,38 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: ovpn
+spec:
+  type: NodePort
+  selector:
+    app: ovpn
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 8000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ovpn
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ovpn
+  template:
+    metadata:
+      labels:
+        app: ovpn
+    spec:
+      containers:
+      - name: ovpn
+        image: hugo19941994/ovpn
+        ports:
+        - containerPort: 8000
+          protocol: TCP
+        envFrom:
+        - secretRef:
+            name: braintree-secret
