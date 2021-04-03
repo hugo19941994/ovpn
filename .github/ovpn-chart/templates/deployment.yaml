@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ovpn
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ovpn
+  template:
+    metadata:
+      labels:
+        app: ovpn
+    spec:
+      containers:
+      - name: ovpn
+        image: hugo19941994/ovpn:{{ .Values.image.tag | default .Chart.AppVersion }}
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        ports:
+        - containerPort: 8000
+          protocol: TCP
+        envFrom:
+        - secretRef:
+            name: braintree-secret
