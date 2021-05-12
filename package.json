@@ -11,7 +11,7 @@
     "express": "^4.14.0",
     "node-sass-middleware": "^0.11.0",
     "node-uuid": "^1.4.7",
-    "nodemailer": "^2.7.2",
+    "nodemailer": "^6.4.16",
     "openpgp": "^2.3.6",
     "socket.io": "^1.7.2"
   },
